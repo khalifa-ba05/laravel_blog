@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -18,6 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
+
             $table->unsignedBigInteger('id_categorie');
             $table->foreign('id_categorie')->references('id')->on('categories');
             $table->timestamps();

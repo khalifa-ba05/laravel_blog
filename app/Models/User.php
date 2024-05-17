@@ -17,10 +17,23 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nom',
+        'prenom',
         'email',
         'password',
+        'id_role',
+        'image'
     ];
+
+    public function Blog()
+    {
+        return $this->hasMany(Blog::class, 'id_user');//Cette methode renvoie la valeur de la clé "trangère id_user
+    }
+
+    public function Role()
+    {
+        return $this->BelongsTo(Role::class, 'id_role');//Cette methode renvoie la valeur de la clé "trangère id_rôle
+    }
 
     /**
      * The attributes that should be hidden for serialization.
